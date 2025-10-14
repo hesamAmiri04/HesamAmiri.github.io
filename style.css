@@ -7,12 +7,11 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f6f8fc;
-  color: #1a1a1a;
+  background: #f7f9fb;
+  color: #1e293b;
   line-height: 1.7;
 }
 
-/* ========= Layout ========= */
 .container {
   width: 90%;
   max-width: 1000px;
@@ -30,39 +29,48 @@ h2 {
 
 /* ========= Hero Section ========= */
 .hero {
-  position: relative;
-  background: linear-gradient(135deg, #023e8a, #0077b6);
+  background: linear-gradient(135deg, #012a6c, #0077b6);
   color: #fff;
   text-align: center;
-  padding: 100px 20px 120px;
-}
-
-.hero-content {
-  z-index: 2;
-  position: relative;
+  padding: 100px 20px;
 }
 
 .profile-photo {
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
   margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .hero h1 {
-  font-size: 2.4em;
+  font-size: 2.5em;
   margin-bottom: 8px;
   font-weight: 600;
 }
 
 .subtitle {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
   font-weight: 300;
-  color: #d9eaff;
+  color: #e0ecff;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 4px 0;
+  font-size: 0.95em;
+}
+
+.contact-info a {
+  color: #caf0f8;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
 }
 
 .hero-buttons {
@@ -70,13 +78,13 @@ h2 {
 }
 
 .btn {
-  text-decoration: none;
+  display: inline-block;
   padding: 10px 22px;
   border-radius: 25px;
   font-weight: 600;
+  margin: 8px;
+  text-decoration: none;
   transition: 0.3s;
-  display: inline-block;
-  margin: 6px;
 }
 
 .btn.primary {
@@ -98,12 +106,6 @@ h2 {
   color: #0077b6;
 }
 
-/* ========= About ========= */
-.about p {
-  color: #333;
-  max-width: 800px;
-}
-
 /* ========= Skills ========= */
 .skills-grid {
   display: grid;
@@ -113,7 +115,7 @@ h2 {
 
 .skill {
   background: #ffffff;
-  padding: 16px 18px;
+  padding: 16px;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.05);
   transition: 0.3s;
@@ -148,7 +150,7 @@ h2 {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 }
 
 .project-card h3 {
@@ -162,6 +164,7 @@ h2 {
   padding: 20px;
   border-left: 5px solid #0077b6;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .edu-card .date {
@@ -178,7 +181,7 @@ h2 {
 
 /* ========= Footer ========= */
 footer {
-  background: #023e8a;
+  background: #012a6c;
   color: #e0f2fe;
   text-align: center;
   padding: 25px 10px;
