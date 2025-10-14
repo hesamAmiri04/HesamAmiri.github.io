@@ -8,79 +8,87 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a2e0bcb5f8.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <header>
-    <div class="overlay"></div>
-    <div class="header-content">
-      <img src="profile.jpg" alt="Hesam Amiri" class="profile-img">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="profile.jpg" alt="Hesam Amiri" class="profile-photo" />
       <h1>Hesam Amiri</h1>
-      <p>Telecommunication Engineer | 5G & Antenna Design | IoT & High-Frequency Circuits</p>
-      <div class="social-links">
-        <a href="mailto:hesam.amiri@studio.unibo.it"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/hesamamirii" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/hesamamiri" target="_blank"><i class="fab fa-github"></i></a>
+      <p class="subtitle">Telecommunication Engineer | 5G • Antennas • IoT • High-Frequency Circuits</p>
+      <div class="hero-buttons">
+        <a href="mailto:hesam.amiri@studio.unibo.it" class="btn primary">Contact Me</a>
+        <a href="https://www.linkedin.com/in/hesamamirii" target="_blank" class="btn secondary">LinkedIn</a>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I’m a Master’s student in <strong>Telecommunication Engineering</strong> at the University of Bologna.
-        I’m passionate about <strong>5G networks, mmWave radar, IoT systems, and antenna design</strong>.
-        I combine hands-on work in <strong>CST, MATLAB, and SDR</strong> with an interest in real-world wireless communication systems.
-      </p>
-    </section>
+  <!-- About Section -->
+  <section class="about container">
+    <h2>About Me</h2>
+    <p>
+      I’m a Master’s student in <strong>Telecommunication Engineering</strong> at the University of Bologna.  
+      My academic focus lies in <strong>5G systems, mmWave radar, and antenna design</strong>, with strong hands-on experience in 
+      <strong>CST, MATLAB, and SDR platforms</strong>.  
+      I’m deeply interested in how high-frequency electronics and AI-driven signal processing 
+      can transform future wireless communication systems.
+    </p>
+  </section>
 
-    <section class="skills">
-      <h2>Technical Skills</h2>
-      <div class="skill-grid">
-        <div class="skill-card">📡 RF & Antenna Design (CST, HFSS)</div>
-        <div class="skill-card">💻 MATLAB / Simulink</div>
-        <div class="skill-card">🐍 Python (NumPy, Pandas, ML)</div>
-        <div class="skill-card">🌐 SDN & Network Simulation (Ryu, Mininet)</div>
-        <div class="skill-card">⚙️ Signal Processing & Filters</div>
-        <div class="skill-card">🔋 Embedded Systems (NRF52, Arduino)</div>
+  <!-- Skills Section -->
+  <section class="skills container">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><i class="fas fa-broadcast-tower"></i> RF & Antenna Design (CST, HFSS)</div>
+      <div class="skill"><i class="fas fa-code"></i> Python (NumPy, Pandas, Scikit-learn)</div>
+      <div class="skill"><i class="fas fa-network-wired"></i> SDN, Ryu Controller, Mininet</div>
+      <div class="skill"><i class="fas fa-microchip"></i> Embedded Systems (NRF52, Arduino)</div>
+      <div class="skill"><i class="fas fa-wave-square"></i> Signal Processing & Filters</div>
+      <div class="skill"><i class="fas fa-laptop-code"></i> MATLAB & Simulink</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects container">
+    <h2>Highlighted Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Dipole Antenna Design</h3>
+        <p>Designed a 2.4 GHz dipole antenna in CST with −25 dB return loss and 90% efficiency.</p>
       </div>
-    </section>
-
-    <section class="projects">
-      <h2>Highlighted Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <h3>Dipole Antenna Design</h3>
-          <p>Optimized a 2.4 GHz antenna in CST achieving −25 dB return loss and high efficiency.</p>
-        </div>
-        <div class="project-card">
-          <h3>Bandpass Filter Simulation</h3>
-          <p>Implemented digital RF filters in MATLAB with spectrum analysis and group delay plots.</p>
-        </div>
-        <div class="project-card">
-          <h3>IoT Wireless Network</h3>
-          <p>Built low-power NRF24L01-based sensor network for real-time environmental monitoring.</p>
-        </div>
+      <div class="project-card">
+        <h3>Digital Bandpass Filter</h3>
+        <p>Developed MATLAB-based filter for RF signal processing and spectral optimization.</p>
       </div>
-    </section>
-
-    <section class="education">
-      <h2>Education</h2>
-      <div class="edu-card">
-        <h3>University of Bologna</h3>
-        <p>M.Sc. in Telecommunication Engineering</p>
-        <p class="date">2023 – Present</p>
+      <div class="project-card">
+        <h3>IoT Wireless Network</h3>
+        <p>Built low-power wireless sensor network with NRF24L01 modules and Python-based data aggregation.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="contact">
-      <h2>Contact Me</h2>
-      <p>If you'd like to collaborate, discuss research, or offer an internship opportunity — reach out!</p>
-      <a href="mailto:hesam.amiri@studio.unibo.it" class="btn">Send Email</a>
-    </section>
-  </main>
+  <!-- Education -->
+  <section class="education container">
+    <h2>Education</h2>
+    <div class="edu-card">
+      <h3>University of Bologna</h3>
+      <p>M.Sc. in Telecommunication Engineering</p>
+      <p class="date">2023 – Present</p>
+    </div>
+  </section>
 
+  <!-- Contact -->
+  <section class="contact container">
+    <h2>Get in Touch</h2>
+    <p>
+      I’m always open to new opportunities — collaborations, research, or industry internships.
+    </p>
+    <a href="mailto:hesam.amiri@studio.unibo.it" class="btn primary">Send Email</a>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Hesam Amiri · Designed & Hosted on GitHub Pages</p>
+    <p>© 2025 Hesam Amiri · Designed with ❤️ and hosted on GitHub Pages</p>
   </footer>
 </body>
 </html>
