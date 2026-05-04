@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hesam Amiri — Telecommunications Engineering</title>
+<meta name="description" content="MSc candidate in Telecommunications Engineering at the University of Bologna. Research on RL-based MAC protocols, cloud–edge orchestration, and network automation." />
+<meta name="author" content="Hesam Amiri" />
+<meta property="og:title" content="Hesam Amiri — Telecommunications Engineering" />
+<meta property="og:description" content="Cloud · Edge · IoT — research portfolio." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ========== background grid + scanline ========== -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-noise" aria-hidden="true"></div>
+<div class="bg-scan" aria-hidden="true"></div>
+
+<!-- ========== top nav ========== -->
+<nav class="nav">
+  <a href="#top" class="nav-mark">
+    <span class="nav-mark__sigil"></span>
+    <span class="nav-mark__name">HESAM AMIRI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#research">research</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#playground">playground</a></li>
+    <li><a href="#cv">cv</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="nav-status" title="System status">
+    <span class="nav-status__dot"></span>
+    <span class="nav-status__text">ONLINE · BOLOGNA</span>
+  </div>
+</nav>
+
+<!-- ========== hero ========== -->
+<header id="top" class="hero">
+  <div class="hero-grid">
+    <div class="hero-meta">
+      <div class="meta-row"><span class="meta-k">FILE</span><span class="meta-v">~/about</span></div>
+      <div class="meta-row"><span class="meta-k">REV</span><span class="meta-v" id="meta-rev">2026.05.04</span></div>
+      <div class="meta-row"><span class="meta-k">UPTIME</span><span class="meta-v" id="meta-uptime">--</span></div>
+    </div>
+
+    <div class="hero-headline">
+      <p class="hero-eyebrow">CLOUD · EDGE · IoT &nbsp;/&nbsp; RESEARCH</p>
+      <h1 class="hero-title">
+        <span class="hero-title__line">Hesam</span>
+        <span class="hero-title__line">Amiri.</span>
+      </h1>
+      <p class="hero-lede">
+        I'm an MSc candidate in Telecommunications Engineering at
+        <a href="https://www.unibo.it" target="_blank" rel="noopener">Università di Bologna</a>.
+        My work sits at the seam between wireless protocols and cloud-native systems —
+        right now, that means teaching IoT radios to learn their own MAC behaviour on
+        real <span class="kbd">802.15.4</span> hardware at <a href="https://wilab.cnit.it" target="_blank" rel="noopener">WiLab</a>.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#research">See the research <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="hesamcv.pdf" download>Download CV (PDF)</a>
+      </div>
+    </div>
+
+    <!-- right-side 3D network -->
+    <div class="hero-scope" aria-hidden="true">
+      <div class="scope-frame">
+        <div class="scope-label scope-label--tl">NET · 32 nodes</div>
+        <div class="scope-label scope-label--tr">2.4 GHz</div>
+        <div class="scope-label scope-label--bl">drag to rotate</div>
+        <div class="scope-label scope-label--br">LIVE •</div>
+        <canvas id="scope" width="640" height="360"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- marquee of keywords -->
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>NETCONF / YANG</span><span>·</span>
+      <span>Reinforcement Learning</span><span>·</span>
+      <span>Kubernetes (k0s)</span><span>·</span>
+      <span>OpenStack</span><span>·</span>
+      <span>IEEE 802.15.4</span><span>·</span>
+      <span>WireGuard / VXLAN / GRE</span><span>·</span>
+      <span>Edge Computing</span><span>·</span>
+      <span>Altium PCB</span><span>·</span>
+      <span>NETCONF / YANG</span><span>·</span>
+      <span>Reinforcement Learning</span><span>·</span>
+      <span>Kubernetes (k0s)</span><span>·</span>
+      <span>OpenStack</span><span>·</span>
+      <span>IEEE 802.15.4</span><span>·</span>
+      <span>WireGuard / VXLAN / GRE</span><span>·</span>
+      <span>Edge Computing</span><span>·</span>
+      <span>Altium PCB</span><span>·</span>
+    </div>
+  </div>
+</header>
+
+<!-- ========== research ========== -->
+<section id="research" class="section">
+  <div class="section-head">
+    <span class="section-num">§01</span>
+    <h2 class="section-title">Research</h2>
+    <p class="section-sub">WiLab — Wireless Communication Laboratory · UniBO · Supervisor: Prof. Chiara Buratti</p>
+  </div>
+
+  <div class="research-card">
+    <div class="research-card__col">
+      <p class="tag">Ongoing · 2024 — present</p>
+      <h3 class="research-title">RL-based dynamic MAC for IoT networks</h3>
+      <p class="research-body">
+        Static CSMA wastes airtime when the channel is busy and starves nodes when it isn't.
+        I'm replacing it with a reinforcement-learning agent that decides
+        when to transmit based on what it actually observes on the channel —
+        no fixed scheduling, no a-priori traffic model. The agent runs on real
+        IEEE 802.15.4 nodes in the WiLab testbed, so it sees the real losses,
+        the real interference, the real hardware quirks. Python implementation,
+        on-device evaluation.
+      </p>
+      <ul class="research-meta">
+        <li><span>METHOD</span>RL · CSMA/CA baseline · on-device</li>
+        <li><span>HARDWARE</span>IEEE 802.15.4 testbed</li>
+        <li><span>STACK</span>Python</li>
+      </ul>
+    </div>
+
+    <!-- live-ish visualization: CSMA vs RL throughput under contention -->
+    <div class="research-card__viz">
+      <div class="viz-frame">
+        <div class="viz-head">
+          <span class="viz-head__title">MAC throughput under contention</span>
+          <div class="viz-head__legend">
+            <span class="lg lg-csma"></span>CSMA
+            <span class="lg lg-rl"></span>RL agent
+          </div>
+        </div>
+        <canvas id="mac-chart" width="640" height="320"></canvas>
+        <div class="viz-foot">
+          <span>illustrative · regenerates on hover</span>
+          <button id="mac-replay" class="ghost-btn">↻ replay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- research interests as tag map -->
+  <div class="interests">
+    <p class="interests-eyebrow">Research interests</p>
+    <div class="interests-grid">
+      <div class="interest-tile" data-axis="distributed">
+        <span class="interest-axis">Distributed systems</span>
+        <span class="interest-text">Orchestration across the cloud–edge continuum.</span>
+      </div>
+      <div class="interest-tile" data-axis="automation">
+        <span class="interest-axis">Network automation</span>
+        <span class="interest-text">NETCONF/YANG and declarative configuration of softwarised infrastructure.</span>
+      </div>
+      <div class="interest-tile" data-axis="rl">
+        <span class="interest-axis">Reinforcement learning</span>
+        <span class="interest-text">Adaptive resource management in wireless and edge environments.</span>
+      </div>
+      <div class="interest-tile" data-axis="edge">
+        <span class="interest-axis">Container-native edge</span>
+        <span class="interest-text">Kubernetes / k0s for latency-sensitive IoT workloads.</span>
+      </div>
+      <div class="interest-tile" data-axis="overlay">
+        <span class="interest-axis">Overlay networking</span>
+        <span class="interest-text">Tunnels (GRE / VXLAN / WireGuard) connecting edge to cloud control planes.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== projects ========== -->
+<section id="projects" class="section">
+  <div class="section-head">
+    <span class="section-num">§02</span>
+    <h2 class="section-title">Selected projects</h2>
+    <p class="section-sub">Click any card to expand the technical detail.</p>
+  </div>
+
+  <div class="projects">
+    <!-- 1 OpenStack -->
+    <article class="project" data-id="openstack">
+      <header class="project-head">
+        <div class="project-head__top">
+          <span class="project-num">01</span>
+          <span class="project-date">Apr 2026</span>
+        </div>
+        <h3 class="project-title">OpenStack VM orchestration</h3>
+        <p class="project-context">Distributed Systems M (Module 2) · Prof. Davide Borsatti · UniBO</p>
+      </header>
+      <p class="project-summary">
+        End-to-end Python automation against a multi-tenant OpenStack lab —
+        Keystone token, Neutron network &amp; router, Nova VM with cloud-init,
+        optional floating IP. The same pattern that underpins production cloud-IoT backends.
+      </p>
+      <ul class="project-stack">
+        <li>Python</li><li>OpenStack SDK</li><li>cloud-init</li><li>Keystone · Neutron · Nova · Glance</li>
+      </ul>
+      <a class="project-link" href="https://github.com/hesamAmiri04/distributed-systems-unibo/openstack" target="_blank" rel="noopener">repository →</a>
+    </article>
+
+    <!-- 2 Kubernetes -->
+    <article class="project" data-id="k8s">
+      <header class="project-head">
+        <div class="project-head__top">
+          <span class="project-num">02</span>
+          <span class="project-date">Apr 2026</span>
+        </div>
+        <h3 class="project-title">Kubernetes deployment of a containerised REST service</h3>
+        <p class="project-context">Distributed Systems M (Module 2) · Prof. Davide Borsatti · UniBO</p>
+      </header>
+      <p class="project-summary">
+        Containerised a Flask REST server, side-loaded the image into a k0s containerd runtime,
+        and shipped a full manifest set: ConfigMap (runtime config injection), Deployment,
+        NodePort Service. The same architecture we'd use to expose IoT-ingest endpoints in production.
+      </p>
+      <ul class="project-stack">
+        <li>Docker</li><li>k0s</li><li>containerd</li><li>kubectl</li><li>Flask</li>
+      </ul>
+      <a class="project-link" href="https://github.com/hesamAmiri04/distributed-systems-unibo/kubernetes-introduction" target="_blank" rel="noopener">repository →</a>
+    </article>
+
+    <!-- 3 VPN -->
+    <article class="project" data-id="vpn">
+      <header class="project-head">
+        <div class="project-head__top">
+          <span class="project-num">03</span>
+          <span class="project-date">2024 — present</span>
+        </div>
+        <h3 class="project-title">Self-managed cloud VPN infrastructure</h3>
+        <p class="project-context">Personal infrastructure project · Hetzner Cloud (Nuremberg)</p>
+      </header>
+      <p class="project-summary">
+        Provisioned an Ubuntu 22.04 VPS and built a working VPN service from the ground up
+        using VLESS + Reality behind the Marzban control panel. SSH hardening, iptables/UFW,
+        systemd, DNS — full server lifecycle, no managed shortcuts.
+      </p>
+      <ul class="project-stack">
+        <li>Ubuntu 22.04</li><li>VLESS+Reality</li><li>Marzban</li><li>iptables / UFW</li><li>systemd</li>
+      </ul>
+    </article>
+
+    <!-- 4 WSN -->
+    <article class="project" data-id="wsn">
+      <header class="project-head">
+        <div class="project-head__top">
+          <span class="project-num">04</span>
+          <span class="project-date">2024</span>
+        </div>
+        <h3 class="project-title">Edge-IoT prototype — wireless sensor network</h3>
+        <p class="project-context">Wireless Sensor Networks course · UniBO</p>
+      </header>
+      <p class="project-summary">
+        Greenhouse monitoring: an Arduino edge node samples ambient light over ADC
+        and pushes it through IEEE 802.15.4 in non-beacon mode, with a UART bridge to the coordinator.
+        The canonical edge → gateway → cloud pattern, in C, on real silicon.
+      </p>
+      <ul class="project-stack">
+        <li>Arduino</li><li>LDR + ADC</li><li>IEEE 802.15.4 (non-beacon)</li><li>UART</li><li>C</li>
+      </ul>
+    </article>
+
+    <!-- 5 PCB -->
+    <article class="project" data-id="pcb">
+      <header class="project-head">
+        <div class="project-head__top">
+          <span class="project-num">05</span>
+          <span class="project-date">2023</span>
+        </div>
+        <h3 class="project-title">Custom PCB for NRF wireless IoT modules</h3>
+        <p class="project-context">Academic project · Altium Designer Enterprise</p>
+      </header>
+      <p class="project-summary">
+        Production-ready PCB carrying NRF24L01 and NRF52 modules for low-power IoT.
+        Component placement, signal-integrity review, full DRC pass in Altium Designer Enterprise.
+      </p>
+      <ul class="project-stack">
+        <li>Altium Designer Enterprise</li><li>NRF24L01 / NRF52</li><li>Schematic capture</li><li>DRC</li>
+      </ul>
+    </article>
+
+    <!-- 6 NETCONF -->
+    <article class="project" data-id="netconf">
+      <header class="project-head">
+        <div class="project-head__top">
+          <span class="project-num">06</span>
+          <span class="project-date">2025/26</span>
+        </div>
+        <h3 class="project-title">NETCONF / YANG automation</h3>
+        <p class="project-context">Network Automation · UniBO</p>
+      </header>
+      <p class="project-summary">
+        Python orchestrator (ncclient) configuring three simulated devices — RAN, aggregation, core —
+        over NETCONF/SSH, with atomic commits across the candidate datastore.
+      </p>
+      <ul class="project-stack">
+        <li>Python</li><li>ncclient</li><li>NETCONF/SSH</li><li>YANG</li>
+      </ul>
+    </article>
+
+    <!-- 7 Tunnel benchmarking -->
+    <article class="project project--wide" data-id="tunnels">
+      <header class="project-head">
+        <div class="project-head__top">
+          <span class="project-num">07</span>
+          <span class="project-date">2025/26</span>
+        </div>
+        <h3 class="project-title">Overlay-tunnel benchmarking</h3>
+        <p class="project-context">Network Automation · UniBO</p>
+      </header>
+      <div class="project-split">
+        <div>
+          <p class="project-summary">
+            Comparative GRE / VXLAN / WireGuard tunnels between Linux network namespaces.
+            Measured RTT and throughput on the same host so the difference comes from the
+            tunnelling cost, not the link.
+          </p>
+          <ul class="project-stack">
+            <li>Linux netns</li><li>GRE</li><li>VXLAN</li><li>WireGuard</li><li>iperf3</li>
+          </ul>
+        </div>
+        <div class="bench">
+          <div class="bench-row">
+            <span class="bench-label">Baseline (no tunnel)</span>
+            <div class="bench-bar"><span class="bench-fill" style="--pct:100%"></span></div>
+            <span class="bench-val">9.4 Gb/s</span>
+          </div>
+          <div class="bench-row">
+            <span class="bench-label">WireGuard</span>
+            <div class="bench-bar"><span class="bench-fill" style="--pct:80.85%"></span></div>
+            <span class="bench-val">7.6 Gb/s</span>
+          </div>
+          <div class="bench-row">
+            <span class="bench-label">VXLAN</span>
+            <div class="bench-bar"><span class="bench-fill" style="--pct:62%"></span></div>
+            <span class="bench-val">~5.8 Gb/s</span>
+          </div>
+          <div class="bench-row">
+            <span class="bench-label">GRE</span>
+            <div class="bench-bar"><span class="bench-fill" style="--pct:55%"></span></div>
+            <span class="bench-val">~5.2 Gb/s</span>
+          </div>
+          <p class="bench-note">Bars below baseline are illustrative — replace with your measurements.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== playground ========== -->
+<section id="playground" class="section">
+  <div class="section-head">
+    <span class="section-num">§03</span>
+    <h2 class="section-title">Playground</h2>
+    <p class="section-sub">A few interactive demos of things I work with daily.</p>
+  </div>
+
+  <div class="play-grid">
+
+    <!-- topology -->
+    <div class="play-card">
+      <div class="play-card__head">
+        <h3>Cloud–edge topology</h3>
+        <p>Hover or tap a node to see its role.</p>
+      </div>
+      <svg id="topology" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cloud edge topology">
+        <!-- links -->
+        <g id="topo-links" stroke="currentColor" stroke-width="1" fill="none" opacity=".35"></g>
+        <!-- nodes injected by JS -->
+        <g id="topo-nodes"></g>
+      </svg>
+      <div class="play-card__detail" id="topo-detail">
+        <span class="detail-k">Selection</span>
+        <span class="detail-v">— click a node —</span>
+      </div>
+    </div>
+
+    <!-- modulation -->
+    <div class="play-card">
+      <div class="play-card__head">
+        <h3>Modulation explorer</h3>
+        <p>Drag to change carrier &amp; data rate.</p>
+      </div>
+      <canvas id="mod" width="640" height="260"></canvas>
+      <div class="mod-controls">
+        <label>
+          Carrier
+          <input id="mod-carrier" type="range" min="2" max="20" step="0.5" value="8" />
+          <span id="mod-carrier-v">8.0</span> Hz
+        </label>
+        <label>
+          Bit rate
+          <input id="mod-rate" type="range" min="1" max="8" step="1" value="3" />
+          <span id="mod-rate-v">3</span> bits/window
+        </label>
+        <label class="mod-mode">
+          <select id="mod-mode">
+            <option value="ask">ASK</option>
+            <option value="fsk">FSK</option>
+            <option value="bpsk" selected>BPSK</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <!-- NETCONF flow -->
+    <div class="play-card play-card--wide">
+      <div class="play-card__head">
+        <h3>NETCONF candidate-datastore commit</h3>
+        <p>Step through how an atomic config change actually lands on a device.</p>
+      </div>
+      <div class="netconf">
+        <div class="netconf-stage" id="netconf-stage">
+          <div class="ds ds-running"><span>RUNNING</span><div class="ds-bytes" id="ds-running">v1.0</div></div>
+          <div class="ds ds-candidate"><span>CANDIDATE</span><div class="ds-bytes" id="ds-candidate">v1.0</div></div>
+          <div class="ds ds-startup"><span>STARTUP</span><div class="ds-bytes" id="ds-startup">v1.0</div></div>
+          <div class="netconf-flow" id="netconf-flow"></div>
+        </div>
+        <div class="netconf-controls">
+          <button class="ghost-btn" data-step="edit">edit-config</button>
+          <button class="ghost-btn" data-step="validate">validate</button>
+          <button class="ghost-btn" data-step="commit">commit</button>
+          <button class="ghost-btn" data-step="copy">copy → startup</button>
+          <button class="ghost-btn ghost-btn--danger" data-step="reset">reset</button>
+        </div>
+        <pre class="netconf-log" id="netconf-log">// idle. press edit-config to begin.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== timeline / cv ========== -->
+<section id="cv" class="section">
+  <div class="section-head">
+    <span class="section-num">§04</span>
+    <h2 class="section-title">Timeline</h2>
+    <p class="section-sub">Education, certifications, and milestones.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-line"></div>
+
+    <div class="t-item">
+      <span class="t-year">2027</span>
+      <div class="t-body">
+        <h4>M.Sc. Telecommunications Engineering — expected</h4>
+        <p>Università di Bologna · current weighted average 25/30</p>
+      </div>
+    </div>
+
+    <div class="t-item t-item--accent">
+      <span class="t-year">2024</span>
+      <div class="t-body">
+        <h4>Joins WiLab — RL-based MAC research begins</h4>
+        <p>Wireless Communication Laboratory, UniBO · Supervisor: Prof. Chiara Buratti</p>
+      </div>
+    </div>
+
+    <div class="t-item">
+      <span class="t-year">2024</span>
+      <div class="t-body">
+        <h4>Supervised Machine Learning (DeepLearning.AI / Stanford)</h4>
+        <p>Certificate</p>
+      </div>
+    </div>
+
+    <div class="t-item">
+      <span class="t-year">2022</span>
+      <div class="t-body">
+        <h4>Begins M.Sc. at Università di Bologna</h4>
+        <p>Wireless Sensor Networks, 5G Systems, Microwave Engineering, Distributed Systems, Network Automation</p>
+      </div>
+    </div>
+
+    <div class="t-item">
+      <span class="t-year">2022</span>
+      <div class="t-body">
+        <h4>B.Eng. Electrical &amp; Electronics Engineering</h4>
+        <p>University of Birjand, Iran</p>
+      </div>
+    </div>
+
+    <div class="t-item t-item--quiet">
+      <span class="t-year">—</span>
+      <div class="t-body">
+        <h4>Other certifications</h4>
+        <p>Industrial Automation HMI &amp; WinCC (PowerEn) · MATLAB Certified (Univ. of Birjand) · Arduino Certification (Univ. of Birjand) · IELTS Academic 6.5 (IDP)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- skills radar -->
+  <div class="skills">
+    <p class="interests-eyebrow">Skill surface</p>
+    <div class="skills-grid">
+      <div class="skill-cluster">
+        <h5>Cloud &amp; virtualization</h5>
+        <ul><li>OpenStack (Keystone, Nova, Neutron, Glance)</li><li>Kubernetes / k0s</li><li>Docker &amp; cloud-init</li><li>Hetzner Cloud VPS</li></ul>
+      </div>
+      <div class="skill-cluster">
+        <h5>Networking &amp; protocols</h5>
+        <ul><li>TCP/IP, VXLAN, GRE, WireGuard</li><li>NETCONF / YANG</li><li>DNS, Linux netns</li><li>iptables / UFW · Wireshark</li></ul>
+      </div>
+      <div class="skill-cluster">
+        <h5>IoT &amp; embedded</h5>
+        <ul><li>Arduino · NRF24L01 / NRF52</li><li>IEEE 802.15.4 (non-beacon)</li><li>Altium Designer (PCB)</li><li>UART · ADC · sensor integration</li></ul>
+      </div>
+      <div class="skill-cluster">
+        <h5>Programming</h5>
+        <ul><li>Python (Flask, ncclient, asyncio)</li><li>Bash · C · MATLAB</li><li>REST API design</li></ul>
+      </div>
+      <div class="skill-cluster">
+        <h5>AI &amp; signal processing</h5>
+        <ul><li>On-device reinforcement learning</li><li>Supervised ML</li><li>Signal processing · 5G</li><li>Microwave engineering</li></ul>
+      </div>
+      <div class="skill-cluster">
+        <h5>Languages</h5>
+        <ul><li>Persian — native / C2</li><li>English — upper-intermediate / B2</li><li>Italian — A2</li><li>German — A2</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== contact ========== -->
+<section id="contact" class="section section--contact">
+  <div class="section-head">
+    <span class="section-num">§05</span>
+    <h2 class="section-title">Get in touch</h2>
+    <p class="section-sub">Open to Erasmus+ traineeships at the cloud–edge intersection.</p>
+  </div>
+
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:hesam.amiri@studio.unibo.it">
+      <span class="contact-k">Email</span>
+      <span class="contact-v">hesam.amiri@studio.unibo.it</span>
+      <span class="contact-arrow">→</span>
+    </a>
+    <a class="contact-card" href="https://linkedin.com/in/hesamamirii" target="_blank" rel="noopener">
+      <span class="contact-k">LinkedIn</span>
+      <span class="contact-v">linkedin.com/in/hesamamirii</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a class="contact-card" href="https://github.com/hesamAmiri04" target="_blank" rel="noopener">
+      <span class="contact-k">GitHub</span>
+      <span class="contact-v">github.com/hesamAmiri04</span>
+      <span class="contact-arrow">↗</span>
+    </a>
+    <a class="contact-card" href="tel:+393445419959">
+      <span class="contact-k">Phone</span>
+      <span class="contact-v">+39 344 541 9959</span>
+      <span class="contact-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ========== footer ========== -->
+<footer class="foot">
+  <div class="foot-l">
+    <span>© <span id="yr">2026</span> Hesam Amiri</span>
+    <span>Bologna, IT</span>
+  </div>
+  <div class="foot-r">
+    <span>Built by hand · no template · view-source friendly</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
